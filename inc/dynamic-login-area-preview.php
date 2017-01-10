@@ -107,7 +107,7 @@ Plugin URI: http://justinestrada.com/wordpress-plugins?plugin=simple-admin-area
 </style>
 <div class="login">
 <div id="login">
-	<h1><a href="http://eventanator.justinestrada.com" title="eventanator" tabindex="-1">Eventanator</a></h1>
+	<h1><a href="<?php echo get_site_url(); ?>" title="eventanator" tabindex="-1">Eventanator</a></h1>
 	<div id="example-loginform">
 		<p>
 			<label for="user_login">Username or Email Address<br>
@@ -122,7 +122,7 @@ Plugin URI: http://justinestrada.com/wordpress-plugins?plugin=simple-admin-area
 			<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In">
 		</p>
 	</div>
-	<p id="nav"><a href="http://eventanator.justinestrada.com/wp-login.php?action=lostpassword">Lost your password?</a></p>
-	<p id="backtoblog"><a href="http://eventanator.justinestrada.com/">← Back to Eventanator</a></p>
+	<p id="nav"><a href="<?php echo get_site_url(); ?>/wp-login.php?action=lostpassword">Lost your password?</a></p>
+	<p id="backtoblog"><a href="<?php echo get_site_url(); ?>">← Back to Eventanator</a></p>
 </div>
 </div>

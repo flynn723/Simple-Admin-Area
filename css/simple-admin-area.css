@@ -1,13 +1,13 @@
-	 .simple-admin-area-settings-form ul {
-	    list-style: circle;
-	    padding-left: 15px;
-	}
-	.simple-admin-area-settings-form ul li {
-	    margin: 0;
-	}
-	.preset-color-scheme-col.selected {
-	    border: 2px dashed #000;
-	}
-	.login-form-preview {
-		display: none;
+	 .simple-admin-area-settings-form ul {
+	    list-style: circle;
+	    padding-left: 15px;
+	}
+	.simple-admin-area-settings-form ul li {
+	    margin: 0;
+	}
+	.preset-color-scheme-col.selected {
+	    border: 2px dashed #000;
+	}
+	.login-form-preview {
+		display: none;
 	}
