@@ -51,7 +51,7 @@ add_action('admin_init', 'simple_admin_area_login_settings_init');
 
 function simple_admin_area_login_setting_section_callback(){
 	$html =  '<ul>
-				<li>Link WordPress Login Form Logo to '.get_current_theme().'</li>
+				<li>Link WordPress Login Form Logo to ' . wp_get_theme() . '</li>
 				<li>Change WordPress Login Form Logo.</li>
 			</ul>';
 	echo $html;

@@ -3,13 +3,20 @@
 Plugin Name: Simple Admin Area
 Plugin URI: http://justinestrada.com/wordpress-products?plugin=simple-admin-area
 Description: Change the Admin Area color scheme and add custome css. Change Admin login form and add custom css to the wordpress login screen.
-Version: 1.0
+Version: 1.0.5
 Text Domain: simple_admin_area
 Author: Justin Estrada
 Author URI: http://justinestrada.com/wordpress-products
 
 ==============================================================================
 License: GNU General Public License, version 2, as published by the Free Software Foundation.
+
+Changelog
+
+1.0.5
+- Updated errors
+
+
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
@@ -49,7 +56,7 @@ add_filter( 'plugin_row_meta', 'simple_admin_area_plugin_row_meta', 10, 2 );
 function simple_admin_area_css() {
 	extract( simple_admin_area_vars() );
 	parse_str($_SERVER['QUERY_STRING'], $query_AR);
-	if ($query_AR['page'] == 'simple-admin-area_settings'){
+	if ( isset( $query_AR['page'] ) == 'simple-admin-area_settings'){
 		wp_register_style( 'simple_admin_area_col_css', $url . 'css/simple-admin-area-col.css', false, '1.0.0' );
 		wp_enqueue_style( 'simple_admin_area_col_css' );
 		wp_register_style( 'simple_admin_area_css', $url . 'css/simple-admin-area.css', false, '1.0.0' );
@@ -62,12 +69,12 @@ function simple_admin_area_css() {
 /******************************
 Creates Simple Admin Area Styling Settings
 *******************************/
-require_once( $path.'styling-settings.php' );
+require_once( plugin_dir_path(__FILE__) . 'styling-settings.php' );	
 
 /******************************
 Creates Simple Admin Area Login Settings
 *******************************/
-require_once( $path.'login-settings.php' );
+require_once( plugin_dir_path(__FILE__) . 'login-settings.php' );
 
 function simple_admin_area_colpick_scripts() {
     wp_enqueue_style('wp-color-picker');
@@ -83,7 +90,7 @@ function simple_admin_area_media_selector_print_scripts() {
 	$my_saved_attachment_post_id = get_option( 'media_selector_attachment_id', 0 );
 
 	parse_str($_SERVER['QUERY_STRING'], $query_AR);
-	if ($query_AR['page'] == 'simple-admin-area_settings'){
+	if ( isset( $query_AR['page'] ) == 'simple-admin-area_settings'){
 		?><script type='text/javascript'>
 			jQuery( document ).ready( function( $ ) {
 				// Uploading files
@@ -193,7 +200,7 @@ add_action('admin_head', 'simple_admin_area_set_login_logo_to_favicon_func');
 function simple_admin_area_options_page(){
   extract( simple_admin_area_vars() ); ?>
   <div class="wrap">
-    <h2>Simple Admin Area Settings | <?php echo get_current_theme(); ?></h2>
+    <h2>Simple Admin Area Settings | <?php echo wp_get_theme(); ?></h2>
     <table class="form-table"><tbody>
 	    <tr valign="top">
 		<td scope="row">
